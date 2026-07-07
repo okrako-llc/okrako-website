@@ -1,0 +1,326 @@
+/*
+Theme Name: おけらこブログ
+Theme URI: https://okrako.com/blog
+Description: 静的サイト(okrako.com)と統一感のあるシンプルなブログ用テーマ。静的サイトのCSSを継承し、ブログ固有のスタイルを最小限追加。
+Author: Claude Code（株式会社スターシェア）
+Version: 1.0.0
+*/
+
+/* ---- ブログ専用追加スタイル（静的サイトCSSの上に積む） ---- */
+
+/* ページ全体 */
+.blog-section { padding: 40px 0; background: #fff; }
+.blog-section .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+/* page-titleはヒーローに置き換えたので不使用 */
+
+/* 記事一覧（グリッド形式：PC3列／タブレット2列／スマホ1列） */
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+@media (max-width: 1024px) {
+  .blog-list { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+}
+@media (max-width: 600px) {
+  .blog-list { grid-template-columns: 1fr; gap: 18px; }
+}
+
+.blog-item {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ececec;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #ececec;
+  transition: box-shadow .2s, transform .2s;
+}
+.blog-item:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.blog-item .blog-thumb {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+}
+.blog-item .blog-thumb img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+  max-width: 100%;
+  display: block;
+  transition: transform .3s;
+}
+.blog-item:hover .blog-thumb img { transform: scale(1.03); }
+
+.blog-item .blog-title {
+  font-size: 1.05em;
+  margin: 16px 16px 4px 16px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.blog-item .blog-title a {
+  color: #2F3053;
+  text-decoration: none;
+}
+.blog-item .blog-title a:hover { text-decoration: underline; }
+
+.blog-item .blog-date { color: #888; font-size: 0.85em; margin: 0 16px 10px 16px; }
+
+.blog-item .blog-excerpt {
+  color: #444;
+  line-height: 1.65;
+  margin: 0 16px 14px 16px;
+  font-size: 0.9em;
+  flex-grow: 1;
+}
+
+.blog-item .blog-readmore {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #2F3053;
+  color: #fff !important;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  align-self: flex-start;
+  margin: 0 16px 16px 16px;
+}
+.blog-item .blog-readmore:hover { background: #1a1b3d; }
+
+/* 単記事ページ */
+.blog-single { max-width: 800px; margin: 0 auto; padding: 60px 0 30px 0; text-align: left; }
+.single-title { color: #2F3053; font-size: 1.7em; margin: 0 0 6px 0; font-weight: 600; line-height: 1.4; }
+.single-meta  { color: #888; font-size: 0.9em; margin: 0 0 24px 0; }
+.single-thumb { margin-bottom: 24px; }
+.single-thumb img { width: 100%; height: auto; border-radius: 8px; }
+.single-content { color: #333; line-height: 1.8; font-size: 1.05em; }
+.single-content p { margin: 12px 0; }
+.single-content h2, .single-content h3, .single-content h4 { color: #2F3053; margin: 24px 0 12px 0; }
+.single-content h2 { font-size: 1.4em; }
+.single-content h3 { font-size: 1.2em; }
+.single-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 16px 0;
+  display: block;
+}
+.single-content a { color: #2F3053; text-decoration: underline; }
+.single-content blockquote {
+  border-left: 3px solid #2F3053;
+  padding: 8px 16px;
+  margin: 16px 0;
+  background: #f8f8f9;
+  color: #555;
+}
+.back-to-list { text-align: center; margin: 40px 0 0; }
+.back-to-list .btn {
+  display: inline-block;
+  padding: 10px 22px;
+  background: #2F3053;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* ページネーション */
+.pagination { text-align: center; padding: 24px 0; }
+.pagination .page-numbers {
+  display: inline-block;
+  padding: 8px 14px;
+  margin: 0 3px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #2F3053;
+  text-decoration: none;
+  background: #fff;
+}
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover {
+  background: #2F3053;
+  color: #fff;
+  border-color: #2F3053;
+}
+
+/* スマホ調整 */
+@media (max-width: 768px) {
+  .blog-section { padding: 20px 0; }
+  .page-title { font-size: 1.2em !important; padding: 18px 16px !important; margin-bottom: 20px !important; }
+  .blog-item { padding: 20px 0; }
+  .blog-item .blog-title { font-size: 1.15em; }
+  .blog-single { padding: 16px 0; }
+  .single-title { font-size: 1.3em; }
+  .single-content { font-size: 1em; }
+}
+
+/* WPブロックエディタの基本要素も最低限カバー */
+.wp-block-image { margin: 16px 0; }
+.wp-block-image img { max-width: 100%; height: auto; border-radius: 6px; }
+.wp-caption-text, .wp-element-caption { color: #777; font-size: 0.9em; text-align: center; }
+
+
+/* ============================================================
+   ヒーローセクション（静的サイトと同じ感）
+   ============================================================ */
+body.blog .main-visual,
+body.archive .main-visual,
+body.home .main-visual {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+}
+body.blog .main-visual .slideshow-container,
+body.archive .main-visual .slideshow-container,
+body.home .main-visual .slideshow-container {
+  width: 100%;
+  height: 700px;
+  max-height: none; /* ベースCSSの max-height:500px を打ち消し、画像を枠いっぱい(700px)に表示 */
+  position: relative;
+}
+body.blog .main-visual .slide img,
+body.archive .main-visual .slide img,
+body.home .main-visual .slide img {
+  width: 100%;
+  height: 700px !important;
+  min-height: 700px !important;
+  object-fit: cover;
+  object-position: center center;
+}
+body.blog .main-visual .slide-text,
+body.archive .main-visual .slide-text,
+body.home .main-visual .slide-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  padding: 24px 40px;
+  border-radius: 10px;
+  text-align: center;
+  width: 80%;
+  max-width: 700px;
+}
+body.blog .main-visual .slide-text h2,
+body.archive .main-visual .slide-text h2,
+body.home .main-visual .slide-text h2 {
+  color: #fff !important;
+  font-size: 2em;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+body.blog .main-visual .slide-text p,
+body.archive .main-visual .slide-text p,
+body.home .main-visual .slide-text p {
+  color: #fff !important;
+  font-size: 1em;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  body.blog .main-visual,
+  body.archive .main-visual,
+  body.home .main-visual,
+  body.blog .main-visual .slideshow-container,
+  body.archive .main-visual .slideshow-container,
+  body.home .main-visual .slideshow-container,
+  body.blog .main-visual .slide img,
+  body.archive .main-visual .slide img,
+  body.home .main-visual .slide img {
+    height: 500px !important;
+  }
+  body.blog .main-visual .slide-text h2,
+  body.archive .main-visual .slide-text h2,
+  body.home .main-visual .slide-text h2 {
+    font-size: 1.4em;
+  }
+  body.blog .main-visual .slide-text,
+  body.archive .main-visual .slide-text,
+  body.home .main-visual .slide-text {
+    padding: 16px 20px;
+  }
+}
+
+
+/* 単記事ページ：題名がヘッダーと近すぎないよう上余白を確保 
+   ※ 静的サイトのheaderはposition:absoluteで高さを占めないので
+      ここで明示的にヘッダー分(70-90px)＋余白を確保する */
+body.single .blog-section,
+body.page .blog-section { padding-top: 130px !important; }
+body.single .blog-single,
+body.page .blog-single { padding-top: 0 !important; }
+@media (max-width: 768px) {
+  body.single .blog-section,
+  body.page .blog-section { padding-top: 100px !important; }
+}
+
+
+/* ============================================================
+   前後記事ナビゲーション（単記事ページ下部）
+   ============================================================ */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 40px 0 20px 0;
+  padding-top: 30px;
+  border-top: 1px solid #e0e0e2;
+}
+.post-nav-prev, .post-nav-next {
+  display: flex;
+}
+.post-nav-prev a, .post-nav-next a {
+  display: block;
+  width: 100%;
+  padding: 16px 18px;
+  background: #fff;
+  color: #2F3053;
+  text-decoration: none;
+  border: 1px solid #e0e0e2;
+  border-radius: 8px;
+  transition: all .2s;
+}
+.post-nav-prev a:hover, .post-nav-next a:hover {
+  background: #2F3053;
+  color: #fff;
+  border-color: #2F3053;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.post-nav-prev { justify-content: flex-end; }
+.post-nav-prev a { text-align: right; }
+.post-nav-next { justify-content: flex-start; }
+.post-nav-next a { text-align: left; }
+.post-nav-label {
+  display: block;
+  font-size: 0.85em;
+  color: #888;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.post-nav-prev a:hover .post-nav-label,
+.post-nav-next a:hover .post-nav-label { color: #ccc; }
+.post-nav-title {
+  display: block;
+  font-size: 0.95em;
+  font-weight: 500;
+  line-height: 1.4;
+  /* 2行で省略 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+@media (max-width: 600px) {
+  .post-nav { grid-template-columns: 1fr; gap: 10px; }
+  .post-nav-prev a, .post-nav-next a { padding: 12px 14px; }
+}
