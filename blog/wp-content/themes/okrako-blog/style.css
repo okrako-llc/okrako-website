@@ -200,30 +200,30 @@ body.blog .main-visual .slide-text,
 body.archive .main-visual .slide-text,
 body.home .main-visual .slide-text {
   position: absolute;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%,-50%);
   color: #fff;
   background: rgba(0,0,0,0.4);
-  padding: 24px 40px;
+  padding: 20px;
   border-radius: 10px;
   text-align: center;
-  width: 80%;
-  max-width: 700px;
+  width: 90%;
+  max-width: 90%;
 }
 body.blog .main-visual .slide-text h2,
 body.archive .main-visual .slide-text h2,
 body.home .main-visual .slide-text h2 {
   color: #fff !important;
   font-size: 2em;
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   font-weight: 600;
 }
 body.blog .main-visual .slide-text p,
 body.archive .main-visual .slide-text p,
 body.home .main-visual .slide-text p {
   color: #fff !important;
-  font-size: 1em;
+  font-size: 1.1em;
   margin: 0;
 }
 @media (max-width: 768px) {
@@ -241,12 +241,18 @@ body.home .main-visual .slide-text p {
   body.blog .main-visual .slide-text h2,
   body.archive .main-visual .slide-text h2,
   body.home .main-visual .slide-text h2 {
-    font-size: 1.4em;
+    font-size: 1.2em;
+  }
+  body.blog .main-visual .slide-text p,
+  body.archive .main-visual .slide-text p,
+  body.home .main-visual .slide-text p {
+    font-size: 0.8em;
   }
   body.blog .main-visual .slide-text,
   body.archive .main-visual .slide-text,
   body.home .main-visual .slide-text {
-    padding: 16px 20px;
+    padding: 15px;
+    max-width: 98%;
   }
 }
 
