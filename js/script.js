@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let mainSlideIndex = 0;
   function showMainSlides() {
     const slides = document.querySelectorAll(".main-visual .slide");
+    if (!slides.length) return;
     slides.forEach(slide => (slide.style.display = "none"));
     mainSlideIndex++;
     if (mainSlideIndex > slides.length) mainSlideIndex = 1;
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let facilitySlideIndex = 0;
   function showFacilitySlides() {
     const slides = document.querySelectorAll(".facility-slideshow .slide");
+    if (!slides.length) return;
     slides.forEach(slide => (slide.style.display = "none"));
     facilitySlideIndex++;
     if (facilitySlideIndex > slides.length) facilitySlideIndex = 1;
