@@ -11,6 +11,8 @@ function okrako_blog_enqueue_styles() {
     wp_enqueue_style('okrako-static-base', 'https://okrako.com/css/style.css', [], '1.0.3');
     // 本テーマのCSS（ブログ専用追加）
     wp_enqueue_style('okrako-blog-style', get_stylesheet_uri(), ['okrako-static-base'], '1.0.3');
+    // スマホ用ハンバーガーメニューの開閉JS（フッターで読み込み）
+    wp_enqueue_script('okrako-blog-menu', get_stylesheet_directory_uri() . '/js/menu.js', [], '1.0.3', true);
 }
 add_action('wp_enqueue_scripts', 'okrako_blog_enqueue_styles');
 
