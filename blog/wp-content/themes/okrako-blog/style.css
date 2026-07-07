@@ -236,7 +236,8 @@ body.home .main-visual .slide-text p {
   body.blog .main-visual .slide img,
   body.archive .main-visual .slide img,
   body.home .main-visual .slide img {
-    height: 500px !important;
+    height: 360px !important; /* 他ページ(ベースCSS)のスマホ高さ360pxに合わせる */
+    min-height: 360px !important; /* PC用のmin-height:700pxを打ち消す(枠が押し出されるのを防ぐ) */
   }
   body.blog .main-visual .slide-text h2,
   body.archive .main-visual .slide-text h2,
